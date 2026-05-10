@@ -8,10 +8,12 @@ class Program
         string playAgain = "yes";
         while (playAgain == "yes")
         {
+            //recall a random number
             Random randomGenerator = new Random();
             int number = randomGenerator.Next(1, 11);
 
             int guess = 0;
+            // keep track of guesses
             int guessCount = 0;
 
             while (guess != number)
