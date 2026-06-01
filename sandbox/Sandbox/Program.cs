@@ -1,14 +1,43 @@
 using System;
-
+using System.Net;
 class Program
 {
-    static void Main(string[] args)
+    static void Main (string[] args)
     {
-        Console.WriteLine("Hello World! This is the Sandbox Project.");
-        Console.WriteLine("I love you");
+        string playAgain = "yes";
+        while (playAgain == "yes")
+        {
+            Random randomGenerator = new Random();
+            int number = randomGenerator.Next(1, 20);
 
-        Console.Write("What is your favorite color: ");
-        string color = Console.ReadLine();
-        Console.WriteLine($"Your favorite color is {color}");
+            int guess = 0;
+            int guessCount = 0;
+        
+            while (guess != number)
+            {
+                Console.Write("What is your guess? ");
+                guess = int.Parse(Console.ReadLine());
+                
+                guessCount ++;
+           
+                if (guess == number)
+                {
+                    Console.WriteLine("You guess it");
+                }
+                else if (guess < number)
+                {
+                    Console.WriteLine("Guess higher");
+                }
+                else
+                {
+                    Console.WriteLine("guess lower");
+                }
+                Console.WriteLine($"You made {guessCount} guesses.");
+
+                Console.Write("Do you want to play again? (yes/no): ");
+                playAgain = Console.ReadLine();
+            }       
+        }       
+            Console.WriteLine("Thanks for playing!");
     }
 }
